@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import Image from "next/image";
-import { PinContainer } from "./PinContainer";
+import { PinContainer } from "@/components/PinContainer";
 
 export interface Project {
   id: number;
@@ -58,7 +58,6 @@ export const projects: Project[] = [
 ];
 
 export default function ProjectPinCards() {
-  const [filter, setFilter] = useState("all");
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   
@@ -93,8 +92,9 @@ export default function ProjectPinCards() {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const cardRef = useRef(null);
+
   const isInView = useInView(cardRef, { once: true, amount: 0.1 });
-  
+
   return (
     <motion.div
       ref={cardRef}

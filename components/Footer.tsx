@@ -35,7 +35,7 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-center text-[var(--foreground)]/70 mb-10"
           >
-            Reach out to me today and let's discuss how I can help you achieve your goals.
+            Reach out to me today and let&apos;s discuss how I can help you achieve your goals.
           </motion.p>
           
           <motion.div
@@ -50,7 +50,7 @@ export default function Footer() {
                 theme === 'light' ? 'hover:text-[var(--accent)]' : ''
               }`}
             >
-              Let's get in touch <span className="ml-1 transform transition-transform group-hover:translate-x-1">→</span>
+              Let&apos;s get in touch <span className="ml-1 transform transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </motion.div>
           

@@ -8,32 +8,6 @@ import { useTheme } from "@/contexts/ThemeContext";
 import GridBackground from "@/components/ui/grid-background";
 import { Spotlight } from "@/components/ui/spotlight";
 
-interface CardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  delay: number;
-}
-
-function Card({ icon, title, description, delay }: CardProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.5, delay }}
-      className="card p-6 h-full flex flex-col"
-    >
-      <div className="mb-4 text-[var(--accent)]">{icon}</div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-[var(--foreground)]/80 flex-grow">{description}</p>
-    </motion.div>
-  );
-}
-
 export default function About() {
   console.log("About component rendered");
   const { theme } = useTheme();
@@ -107,9 +81,7 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-        
-        
       </div>
     </section>
   );
-} 
+}

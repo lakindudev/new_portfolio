@@ -2,46 +2,45 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/moving-border-button";
 import { BackgroundLines } from "@/components/ui/background-lines";
 
 const educationData = [
-    {
-        degree: "BSc in Computer Science",
-        institution:
-          "Informatics Institute of Technology, affiliated with the University of Westminster (UK)",
-        duration: "2023 - Present",
-        description:
-          "Currently pursuing a Bachelor's degree in Computer Science, focusing on software engineering and data structures.",
-      },
-      {
-        degree: "Ordinary Level",
-        institution: "Ananda College",
-        duration: "Completed 2019",
-        description: "Achieved nine 'A' grades in the Ordinary Level examinations.",
-      },
-      {
-        degree: "Advanced Level",
-        institution: "Ananda College",
-        duration: "Completed 2022",
-        description:
-          "Achieved BBC in the Advanced Level examinations, focusing on Maths,Physics, Chemistry subjects.",
-      },
+  {
+    degree: "BSc in Computer Science",
+    institution:
+      "Informatics Institute of Technology, affiliated with the University of Westminster (UK)",
+    duration: "2023 - Present",
+    description:
+      "Currently pursuing a Bachelor's degree in Computer Science, focusing on software engineering and data structures.",
+  },
+  {
+    degree: "Ordinary Level",
+    institution: "Ananda College",
+    duration: "Completed 2019",
+    description: "Achieved nine 'A' grades in the Ordinary Level examinations.",
+  },
+  {
+    degree: "Advanced Level",
+    institution: "Ananda College",
+    duration: "Completed 2022",
+    description:
+      "Achieved BBC in the Advanced Level examinations, focusing on Maths, Physics, Chemistry subjects.",
+  },
 ];
 
 const certificationData = [
-    {
-        name: "Full Stack Web Development",
-        issuer: "Udemy",
-        date: "2022",
-        link: "https://www.udemy.com/certificate/UC-a89ded82-afde-4d36-9e71-10572066f347/",
-      },
+  {
+    name: "Full Stack Web Development",
+    issuer: "Udemy",
+    date: "2022",
+    link: "https://www.udemy.com/certificate/UC-a89ded82-afde-4d36-9e71-10572066f347/",
+  },
 ];
 
 export default function Education() {
   const sectionRef = useRef(null);
-  
+
   return (
     <section id="education" className="section-padding" ref={sectionRef}>
       <div className="relative">
@@ -49,8 +48,8 @@ export default function Education() {
           <div></div>
         </BackgroundLines>
       </div>
-      
-      <div className="container-width relative z-1about me 0">
+
+      <div className="container-width relative z-1">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -141,7 +140,7 @@ export default function Education() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0.944 0112 2.944a11.955 11.955 0.944 01-8.618 3.04A12.02 12.02 0.944 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                 ></path>
               </svg>
               Certifications
@@ -195,9 +194,7 @@ export default function Education() {
                 borderClassName="bg-[radial-gradient(var(--accent)_40%,transparent_60%)]"
                 containerClassName="h-12 w-auto px-4"
                 onClick={() => {
-                  fetch(
-                    "/lakindu_cv.pdf"
-                  )
+                  fetch("/lakindu_cv.pdf")
                     .then((response) => {
                       if (response.ok) {
                         return response.blob();
@@ -222,7 +219,7 @@ export default function Education() {
                     });
                 }}
               >
-                View Full Resume 
+                View Full Resume{" "}
                 <svg
                   className="w-5 h-5 ml-2 inline-block"
                   fill="none"
@@ -244,4 +241,4 @@ export default function Education() {
       </div>
     </section>
   );
-} 
+}

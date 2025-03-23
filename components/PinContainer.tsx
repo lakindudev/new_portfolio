@@ -1,14 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";  // Assuming cn is your class names utility function
 import Link from "next/link";
-import { useTheme } from "@/contexts/ThemeContext";
 
 export const PinContainer = ({
   children,
   title,
-  href,
+  href: _href,
   className = "",
   containerClassName = "",
 }: {
@@ -18,7 +17,6 @@ export const PinContainer = ({
   className?: string;
   containerClassName?: string;
 }) => {
-  const { theme } = useTheme();
   const [transform, setTransform] = useState(
     "translate(-50%,-50%) rotateX(0deg)"
   );
@@ -42,7 +40,7 @@ export const PinContainer = ({
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      href={href || "/"}
+      href={_href || "/"}  // Default to "/" if href is not provided
     >
       <div
         style={{
@@ -67,22 +65,18 @@ export const PinContainer = ({
           <div className={cn("relative z-50", className)}>{children}</div>
         </motion.div>
       </div>
-      <PinPerspective title={title} href={href} isHovered={isHovered} />
+      <PinPerspective title={title} isHovered={isHovered} />
     </Link>
   );
 };
 
 export const PinPerspective = ({
   title,
-  href,
   isHovered,
 }: {
   title?: string;
-  href?: string;
   isHovered: boolean;
 }) => {
-  const { theme } = useTheme();
-  
   return (
     <motion.div 
       className="pointer-events-none w-96 h-80 flex items-center justify-center z-[60] transition duration-500"
@@ -197,4 +191,4 @@ export const PinPerspective = ({
       </div>
     </motion.div>
   );
-}; 
+};

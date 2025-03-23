@@ -15,50 +15,50 @@ export const BackgroundBeamsWithCollision = ({
 
   const beams = [
     {
-      initialX: 10,
-      translateX: 10,
+      initialX: "5%",
+      translateX: "5%",
       duration: 7,
       repeatDelay: 3,
       delay: 2,
     },
     {
-      initialX: 600,
-      translateX: 600,
+      initialX: "20%",
+      translateX: "20%",
       duration: 3,
       repeatDelay: 3,
       delay: 4,
     },
     {
-      initialX: 100,
-      translateX: 100,
+      initialX: "35%",
+      translateX: "35%",
       duration: 7,
       repeatDelay: 7,
       className: "h-6",
     },
     {
-      initialX: 400,
-      translateX: 400,
+      initialX: "50%",
+      translateX: "50%",
       duration: 5,
       repeatDelay: 14,
       delay: 4,
     },
     {
-      initialX: 800,
-      translateX: 800,
+      initialX: "65%",
+      translateX: "65%",
       duration: 11,
       repeatDelay: 2,
       className: "h-20",
     },
     {
-      initialX: 1000,
-      translateX: 1000,
+      initialX: "80%",
+      translateX: "80%",
       duration: 4,
       repeatDelay: 2,
       className: "h-12",
     },
     {
-      initialX: 1200,
-      translateX: 1200,
+      initialX: "95%",
+      translateX: "95%",
       duration: 6,
       repeatDelay: 4,
       delay: 2,
@@ -70,8 +70,7 @@ export const BackgroundBeamsWithCollision = ({
     <div
       ref={parentRef}
       className={cn(
-        "h-96 md:h-[40rem] bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 relative flex items-center w-full justify-center overflow-hidden",
-        // h-screen if you want bigger
+        "h-screen bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 relative flex items-center w-full justify-center overflow-hidden",
         className
       )}
     >
@@ -103,10 +102,10 @@ const CollisionMechanism = React.forwardRef<
     containerRef: React.RefObject<HTMLDivElement>;
     parentRef: React.RefObject<HTMLDivElement>;
     beamOptions?: {
-      initialX?: number;
-      translateX?: number;
-      initialY?: number;
-      translateY?: number;
+      initialX?: number | string;
+      translateX?: number | string;
+      initialY?: number | string;
+      translateY?: number | string;
       rotate?: number;
       className?: string;
       duration?: number;
@@ -114,7 +113,7 @@ const CollisionMechanism = React.forwardRef<
       repeatDelay?: number;
     };
   }
->(({ parentRef, containerRef, beamOptions = {} }, ref) => {
+>(({ parentRef, containerRef, beamOptions = {} }) => {
   const beamRef = useRef<HTMLDivElement>(null);
   const [collision, setCollision] = useState<{
     detected: boolean;
@@ -158,7 +157,7 @@ const CollisionMechanism = React.forwardRef<
     const animationInterval = setInterval(checkCollision, 50);
 
     return () => clearInterval(animationInterval);
-  }, [cycleCollisionDetected, containerRef]);
+  }, [cycleCollisionDetected, containerRef, parentRef]);
 
   useEffect(() => {
     if (collision.detected && collision.coordinates) {
@@ -173,21 +172,26 @@ const CollisionMechanism = React.forwardRef<
     }
   }, [collision]);
 
+  const beamStyle = {
+    left: beamOptions.initialX || 0,
+  };
+
   return (
     <>
       <motion.div
         key={beamKey}
         ref={beamRef}
+        style={beamStyle}
         animate="animate"
         initial={{
           translateY: beamOptions.initialY || "-200px",
-          translateX: beamOptions.initialX || "0px",
+          translateX: "0px",
           rotate: beamOptions.rotate || 0,
         }}
         variants={{
           animate: {
             translateY: beamOptions.translateY || "1800px",
-            translateX: beamOptions.translateX || "0px",
+            translateX: "0px",
             rotate: beamOptions.rotate || 0,
           },
         }}
@@ -200,7 +204,7 @@ const CollisionMechanism = React.forwardRef<
           repeatDelay: beamOptions.repeatDelay || 0,
         }}
         className={cn(
-          "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent",
+          "absolute top-20 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent h-14",
           beamOptions.className
         )}
       />

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/moving-border-button";
 import GridBackground from "@/components/ui/grid-background";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -102,7 +101,7 @@ export default function Hero() {
             variants={fadeIn}
             className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-transparent bg-clip-text"
           >
-            Hello, I'm{" "}
+            Hello, I&apos;m{" "}
             <span className="text-[var(--accent)]">Lakindu Perera</span>
           </motion.h1>
 

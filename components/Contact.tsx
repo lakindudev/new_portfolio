@@ -145,7 +145,7 @@ export default function Contact() {
           <div className="w-20 h-1 bg-[var(--accent)] mx-auto mb-8"></div>
           <p className="max-w-3xl mx-auto text-lg text-[var(--foreground)]/80">
             Have a project in mind or want to discuss a potential collaboration?
-            I'd love to hear from you. Fill out the form below and I'll get back
+            I&apos;d love to hear from you. Fill out the form below and I&apos;ll get back
             to you as soon as possible.
           </p>
         </motion.div>
@@ -158,7 +158,7 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
+              <h3 className="text-2xl font-bold mb-4">Let&apos;s Connect</h3>
               <p className="text-[var(--foreground)]/80 mb-6">
                 Feel free to reach out through the contact form or connect with
                 me directly using the information below.
@@ -453,7 +453,7 @@ export default function Contact() {
 
               {formState === "success" && (
                 <div className="mt-4 p-3 bg-green-100 dark:bg-green-800/30 text-green-700 dark:text-green-300 rounded-lg">
-                  Your message has been sent successfully! I'll get back to you
+                  Your message has been sent successfully! I&apos;ll get back to you
                   soon.
                 </div>
               )}

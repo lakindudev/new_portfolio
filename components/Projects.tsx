@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useInView } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Spotlight } from "@/components/ui/spotlight";
-import { cn } from "@/lib/utils";
 import { PinContainer } from "@/components/ui/3d-pin";
 import GridBackground from "@/components/ui/grid-background";
 
@@ -182,11 +181,10 @@ export default function Projects() {
           animate={isInView ? "visible" : "hidden"}
         >
           {filteredProjects.length > 0 ? (
-            filteredProjects.map((project, index) => (
+            filteredProjects.map((project) => (
               <ProjectCard 
                 key={project.id} 
                 project={project} 
-                index={index} 
                 variants={itemVariants}
               />
             ))
@@ -208,12 +206,10 @@ export default function Projects() {
 
 function ProjectCard({ 
   project, 
-  index,
   variants
 }: { 
   project: Project; 
-  index: number;
-  variants: any;
+  variants: Variants;
 }) {
   const { theme } = useTheme();
   
@@ -224,7 +220,6 @@ function ProjectCard({
     >
       <PinContainer 
         title={project.title} 
-        href={project.link} 
         containerClassName="w-full h-[30rem]"
       >
         <div className={`flex flex-col w-full h-full rounded-2xl overflow-hidden border ${

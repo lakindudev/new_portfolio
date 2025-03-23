@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import ProjectPinCards from "@/components/ProjectPinCard";
-import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
 import ThemeToggle from "@/components/ThemeToggle";
