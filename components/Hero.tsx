@@ -139,9 +139,34 @@ export default function Hero() {
             className="flex flex-wrap justify-center gap-6"
           >
             <Button
-              as="a"
-              href="/lakindu_cv.pdf"
-              download
+              as="button"
+              onClick={() => {
+                // Use the raw GitHub link for the CV
+                const cvUrl = "https://raw.githubusercontent.com/lakindudev/new_portfolio/main/lakindu_cv.pdf";
+                fetch(cvUrl)
+                  .then((response) => {
+                    if (response.ok) {
+                      return response.blob();
+                    }
+                    throw new Error("CV file not available");
+                  })
+                  .then((blob) => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "Lakindu_Perera_CV.pdf";
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    a.remove();
+                  })
+                  .catch((error) => {
+                    console.error("Download failed:", error);
+                    alert(
+                      "Sorry, the CV file is currently not available. Please try again later."
+                    );
+                  });
+              }}
               className={`font-medium backdrop-blur-sm border-[var(--accent)]/20 ${
                 theme === "light"
                   ? "bg-white/30 text-gray-800"
