@@ -35,7 +35,7 @@ const certificationData = [
         name: "Full Stack Web Development",
         issuer: "Udemy",
         date: "2022",
-        link: "#",
+        link: "https://www.udemy.com/certificate/UC-a89ded82-afde-4d36-9e71-10572066f347/",
       },
 ];
 

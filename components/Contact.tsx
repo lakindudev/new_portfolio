@@ -76,10 +76,20 @@ export default function Contact() {
 
     setFormState("loading");
 
-    // Simulate API call
     try {
-      // Replace with actual API call to your email service
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Send form data to our API endpoint
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send message");
+      }
 
       // Success!
       setFormState("success");
@@ -90,6 +100,7 @@ export default function Contact() {
         setFormState("idle");
       }, 5000);
     } catch (error) {
+      console.error("Contact form error:", error);
       setFormState("error");
 
       // Reset error state after 5 seconds
