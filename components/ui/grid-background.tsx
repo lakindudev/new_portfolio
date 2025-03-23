@@ -29,7 +29,7 @@ export default function GridBackground({
       <div
         className={cn(
           "absolute inset-0",
-          "[background-size:60px_60px]",
+          "[background-size:120px_120px]",
           "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
           "dark:[background-image:linear-gradient(to_right,rgba(38,38,38,0.7)_1px,transparent_1px),linear-gradient(to_bottom,rgba(38,38,38,0.7)_1px,transparent_1px)]",
           "transition-opacity duration-500"
