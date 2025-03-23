@@ -44,9 +44,13 @@ export default function Education() {
   
   return (
     <section id="education" className="section-padding" ref={sectionRef}>
-      <BackgroundLines className="absolute inset-0 opacity-50" svgOptions={{ duration: 15 }} />
+      <div className="relative">
+        <BackgroundLines className="absolute inset-0 opacity-50" svgOptions={{ duration: 15 }}>
+          <div></div>
+        </BackgroundLines>
+      </div>
       
-      <div className="container-width relative z-10">
+      <div className="container-width relative z-1about me 0">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
