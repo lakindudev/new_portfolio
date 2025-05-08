@@ -3,7 +3,6 @@ import About from "@/components/About";
 import ProjectPinCards from "@/components/ProjectPinCard";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
-import ThemeToggle from "@/components/ThemeToggle";
 import { FloatingNav } from "@/components/FloatingNav";
 import TechStack from "@/components/TechStack";
 import Footer from "@/components/Footer";
@@ -56,7 +55,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
+
       </div>
       <FloatingNav navItems={navItems} />
       <Hero />

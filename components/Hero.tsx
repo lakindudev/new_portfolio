@@ -43,14 +43,14 @@ const letterVariants = {
 
 export default function Hero() {
   const { theme } = useTheme();
+  const typedTheme = theme as "light" | "dark"; // 👈 this fixes your error
+
   const [tagline, setTagline] = useState(
     "Transforming Concepts into Seamless User Experiences."
   );
   const dynamicText = "Undergraduate at University of Westminster.";
 
-  // This would typically connect to an AI service
   useEffect(() => {
-    // Simulating AI-generated tagline with predefined options
     const taglines = [
       "Bridging front-end elegance with back-end power.",
       "Transforming concepts into seamless digital experiences—end to end.",
@@ -61,37 +61,28 @@ export default function Hero() {
       "Full-stack innovation, limitless possibilities.",
     ];
 
-    // Pick a random tagline
     const randomTagline = taglines[Math.floor(Math.random() * taglines.length)];
     setTagline(randomTagline);
   }, []);
 
   return (
     <div className="relative min-h-screen">
-      {/* Layer 1: Enhanced Grid Background with proper dark mode support */}
-      <GridBackground className="absolute inset-0 dark:bg-neutral-950 bg-slate-50">
-        {/* Empty for background effect */}
-      </GridBackground>
-      
-      {/* Layer 2: Beam Collisions with custom colors for dark mode */}
+      <GridBackground className="absolute inset-0 dark:bg-neutral-950 bg-slate-50" />
+
       <BackgroundBeamsWithCollision className="absolute inset-0 bg-transparent">
-        {/* Provide an empty fragment as children */}
         <>
-          {/* Empty for beam effects only */}
         </>
       </BackgroundBeamsWithCollision>
-      
-      {/* Layer 3: Content with enhanced contrast */}
+
       <div className="relative min-h-screen flex items-center justify-center z-20">
-        {/* Multiple spotlights for more dynamic lighting */}
         <Spotlight
           className="top-0 left-0 md:left-60 md:-top-20"
-          fill={theme === "dark" ? "var(--accent)" : "var(--primary)"}
+          fill={typedTheme === "dark" ? "var(--accent)" : "var(--primary)"}
         />
-        
+
         <Spotlight
           className="bottom-0 right-0 md:right-40 md:bottom-20"
-          fill={theme === "dark" ? "var(--primary)" : "var(--accent)"}
+          fill={typedTheme === "dark" ? "var(--primary)" : "var(--accent)"}
         />
 
         <div className="container-width text-center">
@@ -140,7 +131,6 @@ export default function Hero() {
             <Button
               as="button"
               onClick={() => {
-                // Use the raw GitHub link for the CV
                 const cvUrl = "https://raw.githubusercontent.com/lakindudev/new_portfolio/main/lakindu_cv.pdf";
                 fetch(cvUrl)
                   .then((response) => {
@@ -167,7 +157,7 @@ export default function Hero() {
                   });
               }}
               className={`font-medium backdrop-blur-sm border-[var(--accent)]/20 ${
-                theme === "light"
+                typedTheme === "light"
                   ? "bg-white/30 text-gray-800"
                   : "bg-black/50 text-white"
               }`}
@@ -181,7 +171,7 @@ export default function Hero() {
               as="a"
               href="#projects"
               className={`font-medium backdrop-blur-sm border-[var(--primary)]/20 ${
-                theme === "light"
+                typedTheme === "light"
                   ? "bg-white/30 text-gray-800"
                   : "bg-black/50 text-white"
               }`}

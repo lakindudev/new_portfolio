@@ -3,17 +3,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import GridBackground from "@/components/ui/grid-background";
-import { useTheme } from "@/contexts/ThemeContext";
 import { Spotlight } from "./ui/spotlight";
 
 export default function Footer() {
-  const { theme } = useTheme();
   
   return (
     <GridBackground className="py-50 relative overflow-hidden dark:bg-black bg-slate-100">
       <Spotlight 
         className="left-[10%] top-0" 
-        fill={theme === "dark" ? "var(--secondary)" : "var(--accent)"}
+        fill="var(--secondary)"
       />
       
       <div className="container-width relative z-10">
@@ -46,9 +44,7 @@ export default function Footer() {
           >
             <Link 
               href="#contact" 
-              className={`flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--accent)] text-[var(--foreground)] hover:bg-[var(--accent)]/10 transition-all duration-300 ${
-                theme === 'light' ? 'hover:text-[var(--accent)]' : ''
-              }`}
+              className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--accent)] text-[var(--foreground)] hover:bg-[var(--accent)]/10 transition-all duration-300"
             >
               Let&apos;s get in touch <span className="ml-1 transform transition-transform group-hover:translate-x-1">→</span>
             </Link>
@@ -85,18 +81,12 @@ export default function Footer() {
 }
 
 function SocialIcon({ href, icon }: { href: string; icon: string }) {
-  const { theme } = useTheme();
-  
   return (
     <a 
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-[var(--accent)]/20 transition-all duration-300 ${
-        theme === 'light' 
-          ? 'bg-gray-100 text-gray-800 hover:text-[var(--accent)]' 
-          : 'bg-[var(--card-bg)] text-white'
-      }`}
+      className="w-10 h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] text-white hover:bg-[var(--accent)]/20 transition-all duration-300"
     >
       {icon === "github" && (
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">

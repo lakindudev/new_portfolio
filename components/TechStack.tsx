@@ -56,7 +56,7 @@ const TechStack = () => {
       {/* Dual spotlights for more dynamic lighting */}
       <Spotlight 
         className="right-0 top-20 md:right-60" 
-        fill={theme === "dark" ? "var(--primary)" : "var(--secondary)"}
+        fill="var(--primary)"
       />
       
       <Spotlight 
@@ -112,7 +112,7 @@ const TechStack = () => {
             <motion.div
               key={tech.name}
               className={`flex flex-col items-center p-6 rounded-xl backdrop-blur-sm transition-all ${
-                theme === 'light'
+                theme === 'dark'
                   ? 'bg-white/80 border border-gray-200 hover:shadow-lg hover:border-[var(--primary)]/30'
                   : 'bg-black/30 border border-gray-800 hover:border-[var(--accent)]/50 hover:bg-black/40'
               }`}
@@ -126,11 +126,7 @@ const TechStack = () => {
             >
               <div className="w-12 h-12 mb-4 flex items-center justify-center relative">
                 {/* Subtle glow effect */}
-                <div className={`absolute inset-0 rounded-full opacity-30 filter blur-md ${
-                  theme === 'light' 
-                    ? 'bg-[var(--primary)]/20' 
-                    : 'bg-[var(--accent)]/20'
-                }`}></div>
+                <div className={`absolute inset-0 rounded-full opacity-30 filter blur-md bg-[var(--primary)]/20`}></div>
                 
                 <Image
                   src={tech.icon}
