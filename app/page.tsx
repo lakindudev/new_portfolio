@@ -59,7 +59,7 @@ export default function Home() {
       </div>
       <FloatingNav navItems={navItems} />
       <Hero />
-      <About />
+      {/* <About /> */}
       <Education />
       <ProjectPinCards />
       <TechStack />

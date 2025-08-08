@@ -11,7 +11,7 @@ import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export function Button({
-  borderRadius = "1.75rem",
+  borderRadius = "2rem",
   children,
   as: Component = "button",
   containerClassName,
@@ -71,7 +71,7 @@ export function Button({
 
 export const MovingBorder = ({
   children,
-  duration = 3000,
+  duration = 6000,
   rx,
   ry,
   ...otherProps

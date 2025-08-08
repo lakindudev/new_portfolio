@@ -47,24 +47,6 @@ export default function About() {
         </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-[var(--accent)]/20 to-[var(--primary)]/20 blur-xl"></div>
-            <div className="relative overflow-hidden rounded-xl border border-[var(--accent)]/30 shadow-2xl">
-              <Image 
-                src="/002.jpg" 
-                alt="Lakindu Perera" 
-                width={600} 
-                height={800} 
-                className="w-full h-auto object-cover" 
-              />
-            </div>
-          </motion.div>
-          
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
