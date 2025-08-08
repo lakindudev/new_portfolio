@@ -42,13 +42,7 @@ export default function Education() {
   const sectionRef = useRef(null);
 
   return (
-    <section id="education" className="section-padding" ref={sectionRef}>
-      <div className="relative">
-        <BackgroundLines className="absolute inset-0 opacity-50" svgOptions={{ duration: 15 }}>
-          <div></div>
-        </BackgroundLines>
-      </div>
-
+    <section id="education" className="section-padding mt-0 bg-blend-color" ref={sectionRef}>
       <div className="container-width relative z-1">
         <motion.div
           className="text-center mb-16"
